@@ -1,0 +1,51 @@
+The CSS property `calc()` is used to perform calculations within CSS. However, there's a common mistake where spaces are unintentionally included in the `calc()` expression, leading to unexpected results. For example, consider this CSS:
+
+```css
+.element {
+  width: calc(100% - 20px );
+}
+```
+
+The space after `100%` and before `-` causes the `calc()` function to fail because it interprets the space as part of the calculation.  The correct usage is to remove the space:
+
+```css
+.element {
+  width: calc(100% - 20px);
+}
+```
+
+Another common issue involves the incorrect use of units within the `calc()` expression.  You must use compatible units within the same expression. For example:
+
+```css
+/* Incorrect - mixes percentages and pixels */
+.element {
+  width: calc(50% + 20em);
+}
+```
+
+Mixing percentages and `em` units leads to unpredictable outcomes. It is necessary to be consistent with units:
+
+```css
+/* Correct - Consistent use of pixels */
+.element {
+  width: calc(50% + 20px);
+}
+```
+
+Using nested `calc()` functions without sufficient parentheses can also be problematic, as the order of operations might be misunderstood. Always ensure the parentheses correctly define the order of operations:
+
+```css
+/* Incorrect - ambiguous order of operations */
+.element {
+  width: calc(100% - 20px + 10%);
+}
+```
+
+This example is ambiguous.  It's better to explicitly define the order using nested parentheses:
+
+```css
+/* Correct - clear order of operations */
+.element {
+  width: calc((100% - 20px) + 10%);
+}
+```
