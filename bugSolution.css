@@ -1,0 +1,19 @@
+The solution involves careful attention to detail when constructing `calc()` expressions. Remove extra spaces, ensure consistent units, and use parentheses correctly to specify the order of operations.
+
+Here's the corrected CSS:
+
+```css
+.element {
+  width: calc(100% - 20px);
+}
+
+.element2 {
+  width: calc(50% + 20px);
+}
+
+.element3 {
+  width: calc((100% - 20px) + 10%);
+}
+```
+
+By addressing these issues, the `calc()` function will produce the expected results, and the layout will render correctly.
